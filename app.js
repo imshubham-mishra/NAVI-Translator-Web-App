@@ -1,6 +1,6 @@
 var btnTranslate = document.querySelector('#btn-translate');
 var txtInput = document.querySelector('#txt-input');
-var outputDiv = document.querySelector('.output');
+var outputDiv = document.querySelector('#output');
 
 var url = 'https://api.funtranslations.com/translate/navi.json';
 
@@ -18,7 +18,7 @@ function clickHandler() {
     fetch(getTranslationURL(inputText))
         .then(response => response.json())
         .then(json => {
-            outputDiv.innerHTML = json.contents.translated;
+            outputDiv.innerText = json.contents.translated;
         })
         .catch(error => alert(error + ' please try again after some time!!!'));
 }
