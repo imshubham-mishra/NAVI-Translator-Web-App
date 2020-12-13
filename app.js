@@ -8,18 +8,18 @@ function getTranslationURL(input) {
     return url + '?' + 'texts= ' + input;
 }
 
-function errorHandler(error) {
-    console.log("error occured ", error);
-    // alert("please try again after some time!!!")
-}
+// function errorHandler(error) {
+//     console.log("error occured ", error);
+//     // alert("please try again after some time!!!")
+// }
 
 function clickHandler() {
     var inputText = txtInput.value;
     fetch(getTranslationURL(inputText))
         .then(response => response.json())
         .then(json => {
-            outputDiv.innerText = json.contents.translated;;
+            outputDiv.innerHTML = json.contents.translated;
         })
-        .catch(error => alert(error +' please try again after some time!!! '));
+        .catch(error => alert(error + ' please try again after some time!!!'));
 }
 btnTranslate.addEventListener("click", clickHandler);
