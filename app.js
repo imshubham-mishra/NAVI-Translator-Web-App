@@ -5,7 +5,7 @@ var outputDiv = document.querySelector('#output');
 var url = 'https://api.funtranslations.com/translate/navi.json';
 
 function getTranslationURL(input) {
-    return url + '?' + 'texts= ' + input;
+    return url+ '?text='+ input;
 }
 
 // function errorHandler(error) {
@@ -14,11 +14,10 @@ function getTranslationURL(input) {
 // }
 
 function clickHandler() {
-    var inputText = txtInput.value;
-    fetch(getTranslationURL(inputText))
-        .then(response => response.json())
+    fetch(getTranslationURL(txtInput.value))
+        .then(response =>response.json())
         .then(json => {
-            outputDiv.innerText = json.contents.translated;
+                   outputDiv.innerText =json.contents.translated; 
         })
         .catch(error => alert(error + ' please try again after some time!!!'));
 }
