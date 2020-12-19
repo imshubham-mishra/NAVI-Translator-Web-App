@@ -8,11 +8,6 @@ function getTranslationURL(input) {
     return url+ '?text='+ input;
 }
 
-// function errorHandler(error) {
-//     console.log("error occured ", error);
-//     // alert("please try again after some time!!!")
-// }
-
 function clickHandler() {
     fetch(getTranslationURL(txtInput.value))
         .then(response =>response.json())
